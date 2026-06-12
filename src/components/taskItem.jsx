@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
 import IconButton from '@mui/material/IconButton'
@@ -7,13 +8,15 @@ import Checkbox from '@mui/material/Checkbox'
 import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
 import SaveIcon from '@mui/icons-material/Save'
+import InfoIcon from '@mui/icons-material/Info'
 import useTaskStore from '../store/taskStore'
-import styles from './taskitem.module.css'
+import styles from './taskItem.module.css'
 
 const TaskItem = ({ task }) => {
   const { deleteTask, toggleTask, editTask } = useTaskStore()
   const [isEditing, setIsEditing] = useState(false)
   const [newTitle, setNewTitle] = useState(task.title)
+  const navigate = useNavigate()
 
   const handleSave = () => {
     if (newTitle.trim() === '') return
@@ -26,6 +29,9 @@ const TaskItem = ({ task }) => {
       className={styles.taskItem}
       secondaryAction={
         <>
+          <IconButton onClick={() => navigate(`/task/${task.id}`)}>
+            <InfoIcon />
+          </IconButton>
           {isEditing ? (
             <IconButton onClick={handleSave}>
               <SaveIcon />
