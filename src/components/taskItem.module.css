@@ -1,0 +1,19 @@
+.taskItem {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: box-shadow 0.2s ease;
+}
+
+.taskItem:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.completedText {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.normalText {
+  color: #333;
+}

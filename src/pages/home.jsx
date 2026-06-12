@@ -8,6 +8,7 @@ import Box from '@mui/material/Box'
 import TaskForm from '../components/TaskForm'
 import TaskItem from '../components/TaskItem'
 import useTaskStore from '../store/taskStore'
+import styles from './home.module.css'
 
 const Home = () => {
   const tasks = useTaskStore((state) => state.tasks)
@@ -29,12 +30,12 @@ const Home = () => {
   }, [])
 
   return (
-    <Container maxWidth="md" sx={{ marginTop: 4 }}>
-      <Typography variant="h4" gutterBottom>
+    <Container maxWidth="md" className={styles.container}>
+      <Typography variant="h4" className={styles.title}>
         Mis Tareas
       </Typography>
 
-      <Box sx={{ marginBottom: 3 }}>
+      <Box className={styles.quoteBox}>
         {loading && <CircularProgress size={20} />}
         {error && <Alert severity="error">No se pudo cargar el dato curioso.</Alert>}
         {!loading && !error && (
@@ -45,7 +46,7 @@ const Home = () => {
       <TaskForm />
 
       {tasks.length === 0 ? (
-        <Typography variant="body1" color="text.secondary">
+        <Typography variant="body1" className={styles.emptyText}>
           No hay tareas todavía. ¡Agregá una!
         </Typography>
       ) : (

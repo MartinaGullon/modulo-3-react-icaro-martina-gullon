@@ -1,10 +1,10 @@
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
-import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
-import { useState } from 'react'
 import Alert from '@mui/material/Alert'
+import { useState } from 'react'
+import styles from './contact.module.css'
 
 const Contact = () => {
   const [sent, setSent] = useState(false)
@@ -21,11 +21,11 @@ const Contact = () => {
   }
 
   return (
-    <Container maxWidth="sm" sx={{ marginTop: 4 }}>
-      <Typography variant="h4" gutterBottom>
+    <Container maxWidth="sm" className={styles.container}>
+      <Typography variant="h4" className={styles.title}>
         Contacto
       </Typography>
-      <Typography variant="body1" sx={{ marginBottom: 3 }}>
+      <Typography variant="body1" className={styles.subtitle}>
         ¿Tenés alguna sugerencia o consulta? ¡Escribinos!
       </Typography>
 
@@ -34,7 +34,7 @@ const Contact = () => {
           ¡Mensaje enviado con éxito! Gracias por escribirnos 😊
         </Alert>
       ) : (
-        <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+        <form onSubmit={handleSubmit} className={styles.form}>
           <TextField
             label="Nombre"
             name="name"
@@ -59,10 +59,15 @@ const Contact = () => {
             rows={4}
             fullWidth
           />
-          <Button type="submit" variant="contained" color="primary">
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            className={styles.submitButton}
+          >
             Enviar
           </Button>
-        </Box>
+        </form>
       )}
     </Container>
   )

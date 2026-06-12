@@ -8,6 +8,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
 import SaveIcon from '@mui/icons-material/Save'
 import useTaskStore from '../store/taskStore'
+import styles from './taskitem.module.css'
 
 const TaskItem = ({ task }) => {
   const { deleteTask, toggleTask, editTask } = useTaskStore()
@@ -22,11 +23,7 @@ const TaskItem = ({ task }) => {
 
   return (
     <ListItem
-      sx={{
-        backgroundColor: '#f5f5f5',
-        marginBottom: 1,
-        borderRadius: 2,
-      }}
+      className={styles.taskItem}
       secondaryAction={
         <>
           {isEditing ? (
@@ -58,7 +55,7 @@ const TaskItem = ({ task }) => {
       ) : (
         <ListItemText
           primary={task.title}
-          sx={{ textDecoration: task.completed ? 'line-through' : 'none' }}
+          className={task.completed ? styles.completedText : styles.normalText}
         />
       )}
     </ListItem>
