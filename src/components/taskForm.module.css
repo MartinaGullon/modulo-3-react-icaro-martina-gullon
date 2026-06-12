@@ -1,0 +1,23 @@
+.form {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.input {
+  flex: 1;
+}
+
+.button {
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .form {
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
