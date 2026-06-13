@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Home from './pages/Home'
-import Contact from './pages/Contact'
+import Navbar from './components/navbar'
+import Home from './pages/home'
+import Contact from './pages/contact'
 import TaskDetail from './pages/TaskDetail'
 
 function App() {
